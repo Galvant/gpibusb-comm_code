@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Instrument Base Classes &mdash; GPIB USB Adapter Driver Library 1.0alpha1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0alpha1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="GPIB USB Adapter Driver Library 1.0alpha1 documentation" href="../index.html" />
+    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="next" title="Generic SCPI Instruments" href="generic_scpi.html" />
+    <link rel="prev" title="GPIB USB Adapter API Reference" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="generic_scpi.html" title="Generic SCPI Instruments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="GPIB USB Adapter API Reference"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">GPIB USB Adapter Driver Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="instrument-base-classes">
+<h1>Instrument Base Classes<a class="headerlink" href="#instrument-base-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="instrument-base-class-for-instrument-communication">
+<h2><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-class docutils literal"><span class="pre">Instrument</span></tt></a> - Base class for instrument communication<a class="headerlink" href="#instrument-base-class-for-instrument-communication" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.Instrument">
+<em class="property">class </em><tt class="descclassname">instruments.</tt><tt class="descname">Instrument</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.Instrument" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.Instrument.binblockread">
+<tt class="descname">binblockread</tt><big>(</big><em>dataWidth</em><big>)</big><a class="headerlink" href="#instruments.Instrument.binblockread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a binary data block from attached instrument.
+This requires that the instrument respond in a particular manner
+as EOL terminators naturally can not be used in binary transfers.</p>
+<p>The format is as follows:
+#{number of following digits:1-9}{num of bytes to be read}{data bytes}</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_gpibethernet">
+<em class="property">classmethod </em><tt class="descname">open_gpibethernet</tt><big>(</big><em>host</em>, <em>port</em>, <em>gpib_address</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_gpibethernet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_gpibusb">
+<em class="property">classmethod </em><tt class="descname">open_gpibusb</tt><big>(</big><em>port</em>, <em>gpib_address</em>, <em>timeout=3</em>, <em>writeTimeout=3</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_gpibusb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_serial">
+<em class="property">classmethod </em><tt class="descname">open_serial</tt><big>(</big><em>port</em>, <em>baud</em>, <em>timeout=3</em>, <em>writeTimeout=3</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_tcpip">
+<em class="property">classmethod </em><tt class="descname">open_tcpip</tt><big>(</big><em>host</em>, <em>port</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_tcpip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.Instrument.query">
+<tt class="descname">query</tt><big>(</big><em>cmd</em>, <em>size=-1</em><big>)</big><a class="headerlink" href="#instruments.Instrument.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the given query.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmd</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; String containing the query to 
+execute.</li>
+<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of bytes to be read. Default is read until
+termination character is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The result of the query as returned by the
+connected instrument.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Instrument.sendcmd">
+<tt class="descname">sendcmd</tt><big>(</big><em>cmd</em><big>)</big><a class="headerlink" href="#instruments.Instrument.sendcmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a command without waiting for a response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmd</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; String containing the command to
+be sent.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Instrument.write">
+<tt class="descname">write</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#instruments.Instrument.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data string to GPIB connected instrument.
+This function sends all the necessary GI-GPIB adapter internal commands
+that are required for the specified instrument.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Instrument.address">
+<tt class="descname">address</tt><a class="headerlink" href="#instruments.Instrument.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Instrument.terminator">
+<tt class="descname">terminator</tt><a class="headerlink" href="#instruments.Instrument.terminator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Instrument.timeout">
+<tt class="descname">timeout</tt><a class="headerlink" href="#instruments.Instrument.timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="multimeter-abstract-class-for-multimeter-instruments">
+<h2><a class="reference internal" href="#instruments.Multimeter" title="instruments.Multimeter"><tt class="xref py py-class docutils literal"><span class="pre">Multimeter</span></tt></a> - Abstract class for multimeter instruments<a class="headerlink" href="#multimeter-abstract-class-for-multimeter-instruments" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.Multimeter">
+<em class="property">class </em><tt class="descclassname">instruments.</tt><tt class="descname">Multimeter</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.Multimeter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.Multimeter.getmode">
+<tt class="descname">getmode</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.Multimeter.getmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read measurement mode the multimeter is currently in.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.measure">
+<tt class="descname">measure</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a measurement as specified by mode parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.setmode">
+<tt class="descname">setmode</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.setmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the mode the multimeter is in.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Multimeter.mode">
+<tt class="descname">mode</tt><a class="headerlink" href="#instruments.Multimeter.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read measurement mode the multimeter is currently in.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Instrument Base Classes</a><ul>
+<li><a class="reference internal" href="#instrument-base-class-for-instrument-communication"><tt class="docutils literal"><span class="pre">Instrument</span></tt> - Base class for instrument communication</a></li>
+<li><a class="reference internal" href="#multimeter-abstract-class-for-multimeter-instruments"><tt class="docutils literal"><span class="pre">Multimeter</span></tt> - Abstract class for multimeter instruments</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">GPIB USB Adapter API Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="generic_scpi.html"
+                        title="next chapter">Generic SCPI Instruments</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/apiref/instrument.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="generic_scpi.html" title="Generic SCPI Instruments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="GPIB USB Adapter API Reference"
+             >previous</a> |</li>
+        <li><a href="../index.html">GPIB USB Adapter Driver Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Steven Casagrande.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

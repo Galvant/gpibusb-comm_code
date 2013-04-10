@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Agilent-brand Instruments &mdash; GPIB USB Adapter Driver Library 1.0alpha1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0alpha1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="GPIB USB Adapter Driver Library 1.0alpha1 documentation" href="../index.html" />
+    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="next" title="Stanford Research Systems Instruments" href="srs.html" />
+    <link rel="prev" title="Generic SCPI Instruments" href="generic_scpi.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="srs.html" title="Stanford Research Systems Instruments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="generic_scpi.html" title="Generic SCPI Instruments"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">GPIB USB Adapter Driver Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="agilent-brand-instruments">
+<h1>Agilent-brand Instruments<a class="headerlink" href="#agilent-brand-instruments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="agilent33220a">
+<h2><a class="reference internal" href="#instruments.agilent.Agilent33220a" title="instruments.agilent.Agilent33220a"><tt class="xref py py-class docutils literal"><span class="pre">Agilent33220a</span></tt></a><a class="headerlink" href="#agilent33220a" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.agilent.Agilent33220a">
+<em class="property">class </em><tt class="descclassname">instruments.agilent.</tt><tt class="descname">Agilent33220a</tt><big>(</big><em>port</em>, <em>address</em>, <em>timeout_length</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.agilent.Agilent33220a.dutyCycle">
+<tt class="descname">dutyCycle</tt><big>(</big><em>duty=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.dutyCycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the duty cycle of a square wave.
+Duty cycle represents the amount of time that the square wave is at a high level.</p>
+<p>If no duty is specified, function queries the instrument for the current duty cycle, along with the minimum and maximum duty cycles for the current settings.</p>
+<p>Return type is a tuple of the form (current duty, minimum duty, maximum duty)</p>
+<p>duty: Desired duty cycle as a percent.
+duty = {&lt;duty cycle&gt;|MINimum|MAXimum},integer/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.frequency">
+<tt class="descname">frequency</tt><big>(</big><em>freq=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the output frequency of the function generator. Consult the manual for specific ranges depending on the function.</p>
+<p>If a frequency is not specified, function queries the instrument for the current frequency setting, and returns it as a float. Units are Hertz.</p>
+<p>freq: Desired output frequency.
+freq = {&lt;frequency&gt;|MINimum|MAXimum},number/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.function">
+<tt class="descname">function</tt><big>(</big><em>func=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the output function of the function generator.</p>
+<p>If argument &#8220;func&#8221; is omitted, the instrument is queried for its current output setting. Return type is a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Output function type, one of <tt class="docutils literal"><span class="pre">{SINusoid|SQUare|RAMP|PULSe|NOISe|DC|USER}</span></tt>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.output">
+<tt class="descname">output</tt><big>(</big><em>state=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable or enable the front panel output connector.</p>
+<p>If no state is specified, function queries instrument for the current state.</p>
+<p>Return type is a string.</p>
+<p>state: Desired state of front panel output connector.
+state = {OFF|ON|0|1},string/integer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.outputLoad">
+<tt class="descname">outputLoad</tt><big>(</big><em>load=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.outputLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Desired output termination load (ie, the impedance of the load attached to the front panel output connector).
+When specified as a string, they equate to:</p>
+<ol class="arabic simple">
+<li>MINimum: 1ohm</li>
+<li>MAXimum: 10kohm</li>
+<li>INFinity: High-impedance mode (&gt;10kohm)</li>
+</ol>
+<p>The instrument has a fixed series output impedance of 50ohms. This function allows the instrument to compensate of the voltage divider and accurately report the voltage across the attached load.</p>
+<p>If no load is specified, function queries instrument for the current output load setting, along with the minimum and maximum values.</p>
+<p>Return type is a tuple of the form (current load, min load, max load)</p>
+<p>load: The impedance of the load attached to the front panel output connector
+load = {&lt;ohms&gt;|MINimum|MAXimum|INFinity},integer/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.outputPolarity">
+<tt class="descname">outputPolarity</tt><big>(</big><em>polarity=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.outputPolarity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverts the waveform relative to the offset voltage.</p>
+<p>If no polarity is specified, function queries instrument for current output polarity.</p>
+<p>Return type is a string. For example: &#8220;NORM&#8221; without quotes.</p>
+<p>polarity: Desired output polarity
+polarity = {NORMal|INVerted},string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.outputSync">
+<tt class="descname">outputSync</tt><big>(</big><em>state=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.outputSync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable the front panel sync connector.</p>
+<p>If no state is specified, function queries instrument for the current state.</p>
+<p>Return type is a string.</p>
+<p>state: Desired state of front panel sync connector.
+state = {OFF|ON|0|1},string/integer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.rampSymmetry">
+<tt class="descname">rampSymmetry</tt><big>(</big><em>symmetry=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.rampSymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ramp symmetry for ramp waves.
+Symmetry represents the amount of time per cycle that the ramp wave is rising (unless polarity is inverted).</p>
+<p>If no percent is specified, function queries instrument for the current ramp symmetry, along with the minimum and maximum.</p>
+<p>Return type is a tuple in the form (current symmetry, minimum symmetry, maximum symmetry)</p>
+<p>symmetry: Desired ramp symmetry as a percent
+symmetry = {&lt;ramp symmetry&gt;|MINimum|MAXimum},integer/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.setOutput">
+<tt class="descname">setOutput</tt><big>(</big><em>func</em>, <em>freq=None</em>, <em>amplitude=None</em>, <em>offset=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.setOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the output of the function generator. Only argument &#8220;func&#8221; is required.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>func</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Output function type, one of <tt class="docutils literal"><span class="pre">{SINusoid|SQUare|RAMP|PULSe|NOISe|DC|USER}</span></tt>.</li>
+<li><strong>freq</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> [Hz]) &#8211; Output frequency. Ignored for noise and dc mode.</li>
+<li><strong>amplitude</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> [V]) &#8211; Peak to peak amplitude of the output. Ignored for dc mode.</li>
+<li><strong>offset</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> [V]) &#8211; DC offset.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.voltage">
+<tt class="descname">voltage</tt><big>(</big><em>amplitude=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the output voltage amplitude of the function generator.
+Units are defined by the voltageUnits method.</p>
+<p>If no amplitude is specified, function queries the instrument for the current amplitude.
+Also returns the minimum and maximum values for the current settings.
+Units are defined by the voltageUnits method.</p>
+<p>Return type is a tuple of the form (current value, minimum allowed, maximum allowed)</p>
+<p>amplitude: Desired output voltage amplitude
+amplitude = {&lt;amplitude&gt;|MINimum|MAXimum}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.voltageOffset">
+<tt class="descname">voltageOffset</tt><big>(</big><em>offset=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.voltageOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the offset voltage for the output waveform.</p>
+<p>If no offset is specified, function queries the instrument for the current offset voltage.
+It also queries the minimum and maximum offset for the current settings.</p>
+<p>Return type is a tuple of the form (current offset, minimum offset, maximum offset )</p>
+<p>offset: Desired voltage offset in volts.
+offset = {&lt;voltage&gt;|MINimum|MAXimum},number/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent33220a.voltageUnits">
+<tt class="descname">voltageUnits</tt><big>(</big><em>unit=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent33220a.voltageUnits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the voltage amplitude units of the function generator.</p>
+<p>If no units are specified, function queries the instrument for the currently set voltage units.</p>
+<p>Return type is a string.</p>
+<p>unit: Desired voltage unit
+unit = {VPP|VRMS|DBM}</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="agilent34410a">
+<h2><a class="reference internal" href="#instruments.agilent.Agilent34410a" title="instruments.agilent.Agilent34410a"><tt class="xref py py-class docutils literal"><span class="pre">Agilent34410a</span></tt></a><a class="headerlink" href="#agilent34410a" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.agilent.Agilent34410a">
+<em class="property">class </em><tt class="descclassname">instruments.agilent.</tt><tt class="descname">Agilent34410a</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.agilent.Agilent34410a.abort">
+<tt class="descname">abort</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.abort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abort all measurements currently in progress.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.clear_memory">
+<tt class="descname">clear_memory</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.clear_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the non-volatile memory of the Agilent 34410a.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.configure">
+<tt class="descname">configure</tt><big>(</big><em>mode=None</em>, <em>deviceRange=None</em>, <em>resolution=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the measurement mode of the multimeter.
+No actual measurement will take place, but the instrument is then able to do so using the INITiate or READ? command.</p>
+<p>All arguments are optional. Passing no arguments will query the device for the current configuration settings. This returns a string such as <tt class="docutils literal"><span class="pre">VOLT</span> <span class="pre">+1.000000E+01,+3.000000E-06</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mode</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> (one of <tt class="docutils literal"><span class="pre">MINimum,</span> <span class="pre">MAXimum,</span> <span class="pre">DEFault,</span> <span class="pre">AUTOmatic</span></tt>) or range) &#8211; Desired measurement mode, one of <tt class="docutils literal"><span class="pre">{CAPacitance|CONTinuity|CURRent:AC|CURRent:DC|DIODe|FREQuency|FRESistance|PERiod|RESistance|TEMPerature|VOLTage:AC|VOLTage:DC}</span></tt>.</li>
+<li><strong>deviceRange</strong> &#8211; It is recommended this is user specified, but is optional. Sets the range of the instrument. No value checking when passed as a number.</li>
+<li><strong>resolution</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Measurement that the instrument will use. This is ignored for most modes. It is assumed that the user has entered a valid number.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.fetch">
+<tt class="descname">fetch</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfer readings from instrument memory to the output buffer, and thus to the computer.
+If currently taking a reading, the instrument will wait until it is complete before executing this command.
+Readings are NOT erased from memory when using fetch. Use the R? command to read and erase data.
+Note that the data is transfered as ASCII, and thus it is not recommended to transfer a large number of
+data points using this method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> elements</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.init">
+<tt class="descname">init</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switch device from &#8220;idle&#8221; state to &#8220;wait-for-trigger state&#8221;.
+Measurements will begin when specified triggering conditions are met, following the receipt of the INIT command.</p>
+<p>Note that this command will also clear the previous set of readings from memory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.r">
+<tt class="descname">r</tt><big>(</big><em>count</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>HERP DERP</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.read">
+<tt class="descname">read</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switch device from &#8220;idle&#8221; state to &#8220;wait-for-trigger&#8221; state. Immediately after the trigger conditions are met, the data will be sent to the output buffer of the instrument.</p>
+<p>This is similar to calling <a class="reference internal" href="#instruments.agilent.Agilent34410a.init" title="instruments.agilent.Agilent34410a.init"><tt class="xref py py-meth docutils literal"><span class="pre">init()</span></tt></a> and then immediately falling <span class="math">\(~Agilent34410a.fetch\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.readLastData">
+<tt class="descname">readLastData</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.readLastData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the last measurement taken. This can be executed at any time, including when the instrument is currently taking measurements.
+If there are no data points available, the value 9.91000000E+37 is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> (if an error occurs)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.read_data">
+<tt class="descname">read_data</tt><big>(</big><em>sample_count</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.read_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfer specified number of data points from reading memory (RGD_STORE) to output buffer.
+First data point sent to output buffer is the oldest.
+Data is erased after being sent to output buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample_count</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of data points to be transfered to output buffer.
+If set to -1, all points in memory will be transfered.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> elements</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.read_data_NVMEM">
+<tt class="descname">read_data_NVMEM</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.read_data_NVMEM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all readings in non-volatile memory (NVMEM).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> elements</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.sampleCount">
+<tt class="descname">sampleCount</tt><big>(</big><em>count=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.sampleCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command sets the number of readings (samples) that the multimeter will take per trigger.
+The time between each measurement is defined with the sampleTimer function.</p>
+<p>Note that if the sample count parameter has been changed, the number of readings taken will be a multiplication of sample count and trigger count (see function sampleCount).
+If specified as a string, the following options apply:</p>
+<ol class="arabic simple">
+<li>&#8220;MINimum&#8221;: 1 sample per trigger</li>
+<li>&#8220;MAXimum&#8221;: 50 000 samples per trigger</li>
+<li>&#8220;DEF&#8221;: Default, 1 sample</li>
+</ol>
+<p>If count is not specified, function queries the instrument for the current smaple count and returns an integer.</p>
+<p>Note that when using triggered measurements, it is recommended that you disable autorange by either explicitly disabling it or specifying your desired range.</p>
+<p>count: Number of triggers before returning to an &#8220;idle&#8221; trigger state.
+count = {&lt;count&gt;|MINimum|MAXimum|DEF},integer/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.sampleSource">
+<tt class="descname">sampleSource</tt><big>(</big><em>source=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.sampleSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command determines whether the trigger delay or the sample timer is used to determine sample timing when the sample count is greater than one.
+In both cases, the first sample is taken one trigger delay time after the trigger. After that, it depends on which mode is used:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>&#8220;IMMediate&#8221;: The trigger delay time is inserted between successive samples. After the first measurement is completed, the instrument waits the time specified by</dt>
+<dd><p class="first last">the trigger delay and then performs the next sample.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">&#8220;TIMer&#8221;: Successive samples start one sample interval after the START of the previous sample.</p>
+</li>
+</ol>
+<p>If source is not specified, function queries the instrument for the currently set sample source and returns its as a string. An example is &#8220;TIM&#8221; without quotes.</p>
+<p>source: Desired successive sample timing mode.
+source = {IMMediate|TIMer},string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.sampleTimer">
+<tt class="descname">sampleTimer</tt><big>(</big><em>period=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.sampleTimer" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command sets the sample interval when the sample counter is greater than one and when the sample source is set to timer (timed sampling).</p>
+<p>This command does not effect the delay between the trigger occuring and the start of the first sample. This trigger delay is set with the triggerDelay function.</p>
+<p>Note that this function does not contain proper screening for &#8220;period&#8221; being a malformed string. This allows you to include the units of your specified value in the string.
+If no units are specified, the number will be read by the instrument as having units of seconds.</p>
+<p>If period is not specified, function queries the instrument for the current sample interval and returns it as a float.</p>
+<p>period: Time period between samples. An example including units is &#8220;500 ms&#8221;.
+period = {&lt;period&gt;|MINimum|MAXimum},float/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.triggerCount">
+<tt class="descname">triggerCount</tt><big>(</big><em>count=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.triggerCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function sets the number of triggers that the multimeter will accept before returning to an &#8220;idle&#8221; trigger state.</p>
+<p>Note that if the sample count parameter has been changed, the number of readings taken will be a multiplication of sample count and trigger count (see function sampleCount).
+If specified as a string, the following options apply:</p>
+<ol class="arabic simple">
+<li>&#8220;MINimum&#8221;: 1 trigger</li>
+<li>&#8220;MAXimum&#8221;: 50 000 triggers</li>
+<li>&#8220;DEF&#8221;: Default</li>
+<li>&#8220;INFinity&#8221;: Continuous. When the buffer is filled, the oldest data points are overwritten.</li>
+</ol>
+<p>If count is not specified, function queries the instrument for the current trigger count setting. This is returned as an integer.</p>
+<p>Note that when using triggered measurements, it is recommended that you disable autorange by either explicitly disabling it or specifying your desired range.</p>
+<p>count: Number of triggers before returning to an &#8220;idle&#8221; trigger state.
+count = {&lt;count&gt;|MINimum|MAXimum|DEF|INFinity},integer/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.triggerDelay">
+<tt class="descname">triggerDelay</tt><big>(</big><em>period=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.triggerDelay" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command sets the time delay which the instrument will use following receiving a trigger event before starting the measurement.</p>
+<p>Note that this function does not contain proper screening for &#8220;period&#8221; being a malformed string. This allows you to include the units of your specified value in the string.
+If no units are specified, the number will be read by the instrument as having units of seconds.</p>
+<p>If no period is specified, function queries the instrument for the current trigger delay and returns a float.</p>
+<p>period: Time between receiving a trigger event and the instrument taking the reading. Values range from 0s to ~3600s, in ~20us increments.
+period = {&lt;seconds&gt;|MINimum|MAXimum|DEF},float/string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.agilent.Agilent34410a.triggerSource">
+<tt class="descname">triggerSource</tt><big>(</big><em>source=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.triggerSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function sets the trigger source for measurements.
+The 34410a accepts the following trigger sources:</p>
+<ol class="arabic simple">
+<li>&#8220;Immediate&#8221;: This is a continuous trigger. This means the trigger signal is always present.</li>
+<li>&#8220;External&#8221;: External TTL pulse on the back of the instrument. It is active low.</li>
+<li>&#8220;Bus&#8221;: Causes the instrument to trigger when a <tt class="docutils literal"><span class="pre">*TRG</span></tt> command is sent by software. This means calling the trigger() function.</li>
+</ol>
+<p>If no source is specified, function queries the instrument for the current setting. This is returned as a string. An example value is &#8220;EXT&#8221;, without quotes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Desired trigger source, one of <tt class="docutils literal"><span class="pre">{IMMediate|EXTernal|BUS}</span></tt>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.agilent.Agilent34410a.data_point_count">
+<tt class="descname">data_point_count</tt><a class="headerlink" href="#instruments.agilent.Agilent34410a.data_point_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total number of readings that are located in reading memory (RGD_STORE).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Agilent-brand Instruments</a><ul>
+<li><a class="reference internal" href="#agilent33220a"><tt class="docutils literal"><span class="pre">Agilent33220a</span></tt></a></li>
+<li><a class="reference internal" href="#agilent34410a"><tt class="docutils literal"><span class="pre">Agilent34410a</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="generic_scpi.html"
+                        title="previous chapter">Generic SCPI Instruments</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="srs.html"
+                        title="next chapter">Stanford Research Systems Instruments</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/apiref/agilent.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="srs.html" title="Stanford Research Systems Instruments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="generic_scpi.html" title="Generic SCPI Instruments"
+             >previous</a> |</li>
+        <li><a href="../index.html">GPIB USB Adapter Driver Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Steven Casagrande.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

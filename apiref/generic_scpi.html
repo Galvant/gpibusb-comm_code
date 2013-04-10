@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Generic SCPI Instruments &mdash; GPIB USB Adapter Driver Library 1.0alpha1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0alpha1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="GPIB USB Adapter Driver Library 1.0alpha1 documentation" href="../index.html" />
+    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="next" title="Agilent-brand Instruments" href="agilent.html" />
+    <link rel="prev" title="Instrument Base Classes" href="instrument.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="agilent.html" title="Agilent-brand Instruments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="instrument.html" title="Instrument Base Classes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">GPIB USB Adapter Driver Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="generic-scpi-instruments">
+<h1>Generic SCPI Instruments<a class="headerlink" href="#generic-scpi-instruments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scpiinstrument-base-class-for-instruments-using-the-scpi-protocol">
+<h2><a class="reference internal" href="#instruments.generic_scpi.SCPIInstrument" title="instruments.generic_scpi.SCPIInstrument"><tt class="xref py py-class docutils literal"><span class="pre">SCPIInstrument</span></tt></a> - Base class for instruments using the SCPI protocol<a class="headerlink" href="#scpiinstrument-base-class-for-instruments-using-the-scpi-protocol" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.generic_scpi.SCPIInstrument">
+<em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIInstrument</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.generic_scpi.SCPIInstrument.clear">
+<tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.generic_scpi.SCPIInstrument.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.generic_scpi.SCPIInstrument.trigger">
+<tt class="descname">trigger</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.trigger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.generic_scpi.SCPIInstrument.wait_to_continue">
+<tt class="descname">wait_to_continue</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.wait_to_continue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIInstrument.name">
+<tt class="descname">name</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the connected instrument, as reported by the
+standard SCPI command <tt class="docutils literal"><span class="pre">*IDN?</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIInstrument.op_complete">
+<tt class="descname">op_complete</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.op_complete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIInstrument.power_on_status">
+<tt class="descname">power_on_status</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.power_on_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIInstrument.self_test_ok">
+<tt class="descname">self_test_ok</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.self_test_ok" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="scpimultimeter-generic-multimeter-using-standard-scpi-commands">
+<h2><a class="reference internal" href="#instruments.generic_scpi.SCPIMultimeter" title="instruments.generic_scpi.SCPIMultimeter"><tt class="xref py py-class docutils literal"><span class="pre">SCPIMultimeter</span></tt></a> - Generic multimeter using standard SCPI commands<a class="headerlink" href="#scpimultimeter-generic-multimeter-using-standard-scpi-commands" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.generic_scpi.SCPIMultimeter">
+<em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIMultimeter</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.generic_scpi.SCPIMultimeter.measure">
+<tt class="descname">measure</tt><big>(</big><em>mode=None</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instruct the multimeter to perform a one time measurement. The 
+instrument will use default parameters for the requested measurement.
+The measurement will immediately take place, and the results are 
+directly sent to the instrument&#8217;s output buffer.</p>
+<p>Method returns a Python quantity consisting of a numpy array with the
+instrument value and appropriate units. If no appropriate units exist,
+(for example, continuity), then return type is <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>instruments.generic_scpi.MultimeterMode</em>) &#8211; Desired measurement mode.
+If set to <a class="reference external" href="http://docs.python.org/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, will default to the current mode.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.mode">
+<tt class="descname">mode</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get or set the current measurement mode for the multimeter.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Generic SCPI Instruments</a><ul>
+<li><a class="reference internal" href="#scpiinstrument-base-class-for-instruments-using-the-scpi-protocol"><tt class="docutils literal"><span class="pre">SCPIInstrument</span></tt> - Base class for instruments using the SCPI protocol</a></li>
+<li><a class="reference internal" href="#scpimultimeter-generic-multimeter-using-standard-scpi-commands"><tt class="docutils literal"><span class="pre">SCPIMultimeter</span></tt> - Generic multimeter using standard SCPI commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="instrument.html"
+                        title="previous chapter">Instrument Base Classes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="agilent.html"
+                        title="next chapter">Agilent-brand Instruments</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/apiref/generic_scpi.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="agilent.html" title="Agilent-brand Instruments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="instrument.html" title="Instrument Base Classes"
+             >previous</a> |</li>
+        <li><a href="../index.html">GPIB USB Adapter Driver Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Steven Casagrande.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
