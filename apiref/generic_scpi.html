@@ -57,97 +57,10 @@
   <div class="section" id="generic-scpi-instruments">
 <h1>Generic SCPI Instruments<a class="headerlink" href="#generic-scpi-instruments" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="scpiinstrument-base-class-for-instruments-using-the-scpi-protocol">
-<h2><a class="reference internal" href="#instruments.generic_scpi.SCPIInstrument" title="instruments.generic_scpi.SCPIInstrument"><tt class="xref py py-class docutils literal"><span class="pre">SCPIInstrument</span></tt></a> - Base class for instruments using the SCPI protocol<a class="headerlink" href="#scpiinstrument-base-class-for-instruments-using-the-scpi-protocol" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="instruments.generic_scpi.SCPIInstrument">
-<em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIInstrument</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="instruments.generic_scpi.SCPIInstrument.clear">
-<tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="instruments.generic_scpi.SCPIInstrument.reset">
-<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.reset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="instruments.generic_scpi.SCPIInstrument.trigger">
-<tt class="descname">trigger</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.trigger" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="instruments.generic_scpi.SCPIInstrument.wait_to_continue">
-<tt class="descname">wait_to_continue</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.wait_to_continue" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.generic_scpi.SCPIInstrument.name">
-<tt class="descname">name</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the connected instrument, as reported by the
-standard SCPI command <tt class="docutils literal"><span class="pre">*IDN?</span></tt>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.generic_scpi.SCPIInstrument.op_complete">
-<tt class="descname">op_complete</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.op_complete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.generic_scpi.SCPIInstrument.power_on_status">
-<tt class="descname">power_on_status</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.power_on_status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.generic_scpi.SCPIInstrument.self_test_ok">
-<tt class="descname">self_test_ok</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.self_test_ok" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<h2><tt class="xref py py-class docutils literal"><span class="pre">SCPIInstrument</span></tt> - Base class for instruments using the SCPI protocol<a class="headerlink" href="#scpiinstrument-base-class-for-instruments-using-the-scpi-protocol" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="scpimultimeter-generic-multimeter-using-standard-scpi-commands">
-<h2><a class="reference internal" href="#instruments.generic_scpi.SCPIMultimeter" title="instruments.generic_scpi.SCPIMultimeter"><tt class="xref py py-class docutils literal"><span class="pre">SCPIMultimeter</span></tt></a> - Generic multimeter using standard SCPI commands<a class="headerlink" href="#scpimultimeter-generic-multimeter-using-standard-scpi-commands" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="instruments.generic_scpi.SCPIMultimeter">
-<em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIMultimeter</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="instruments.generic_scpi.SCPIMultimeter.measure">
-<tt class="descname">measure</tt><big>(</big><em>mode=None</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.measure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Instruct the multimeter to perform a one time measurement. The 
-instrument will use default parameters for the requested measurement.
-The measurement will immediately take place, and the results are 
-directly sent to the instrument&#8217;s output buffer.</p>
-<p>Method returns a Python quantity consisting of a numpy array with the
-instrument value and appropriate units. If no appropriate units exist,
-(for example, continuity), then return type is <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>instruments.generic_scpi.MultimeterMode</em>) &#8211; Desired measurement mode.
-If set to <a class="reference external" href="http://docs.python.org/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, will default to the current mode.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.generic_scpi.SCPIMultimeter.mode">
-<tt class="descname">mode</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get or set the current measurement mode for the multimeter.</p>
-</dd></dl>
-
-</dd></dl>
-
+<h2><tt class="xref py py-class docutils literal"><span class="pre">SCPIMultimeter</span></tt> - Generic multimeter using standard SCPI commands<a class="headerlink" href="#scpimultimeter-generic-multimeter-using-standard-scpi-commands" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

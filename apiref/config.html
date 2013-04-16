@@ -58,65 +58,10 @@ software that connects to those instruments. Configuration files recognized
 by <tt class="xref py py-obj docutils literal"><span class="pre">instruments</span></tt> are <a class="reference external" href="http://yaml.org/">YAML</a> files that specify for each instrument a class
 responsible for loading that instrument, along with a URI specifying how that
 instrument is connected.</p>
-<p>Configuration files are loaded by the use of the <a class="reference internal" href="#instruments.load_instruments" title="instruments.load_instruments"><tt class="xref py py-obj docutils literal"><span class="pre">load_instruments</span></tt></a> function,
+<p>Configuration files are loaded by the use of the <tt class="xref py py-obj docutils literal"><span class="pre">load_instruments</span></tt> function,
 documented below.</p>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="instruments.load_instruments">
-<tt class="descclassname">instruments.</tt><tt class="descname">load_instruments</tt><big>(</big><em>conf_file_name</em>, <em>conf_path='/'</em><big>)</big><a class="headerlink" href="#instruments.load_instruments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given the path to a YAML-formatted configuration file and a path within
-that file, loads the instruments described in that configuration file.
-The subsection of the configuration file is expected to look like a map from
-names to YAML nodes giving the class and instrument URI for each instrument.
-For example:</p>
-<div class="highlight-python"><pre>ddg:
-    class: !!python/name:instruments.srs.SRSDG645
-    uri: gpib+usb://COM7/15</pre>
-</div>
-<p>Loading instruments from this configuration will result in a dictionary of
-the form
-<tt class="docutils literal"><span class="pre">{'ddg':</span> <span class="pre">instruments.srs.SRSDG645.open_from_uri('gpib+usb://COM7/15')}</span></tt>.</p>
-<p>By specifying a path within the configuration file, one can load only a part
-of the given file. For instance, consider the configuration:</p>
-<div class="highlight-python"><pre>instruments:
-    ddg:
-        class: !!python/name:instruments.srs.SRSDG645
-        uri: gpib+usb://COM7/15
-prefs:
-    ...</pre>
-</div>
-<p>Then, specifying <tt class="docutils literal"><span class="pre">&quot;/instruments&quot;</span></tt> as the configuration path will cause
-this function to load the instruments named in that block, and ignore
-all other keys in the YAML file.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>conf_file_name</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the configuration file to load
-instruments from.</li>
-<li><strong>conf_path</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; <tt class="docutils literal"><span class="pre">&quot;/&quot;</span></tt> separated path to the section in the
-configuration file to load.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">dict</span></tt></a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p>The configuration file must be trusted, as the class name references
-allow for executing arbitrary code. Do not load instruments from
-configuration files sent over network connections.</p>
-<p class="last">Note that keys in sections excluded by the <tt class="docutils literal"><span class="pre">conf_path</span></tt> argument are
-still processed, such that any side effects that may occur due to
-such processing will occur independently of the value of <tt class="docutils literal"><span class="pre">conf_path</span></tt>.</p>
-</div>
-</dd></dl>
-
 </div>
 </div>
 

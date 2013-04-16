@@ -58,12 +58,46 @@
 <h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dependencies">
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Most of the required and optional dependencies can be obtained using
+<tt class="docutils literal"><span class="pre">easy_intstall</span></tt> or <tt class="docutils literal"><span class="pre">pip</span></tt> (preferred).</p>
+<div class="section" id="required-dependencies">
+<h4>Required Dependencies<a class="headerlink" href="#required-dependencies" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>NumPy</li>
 <li><a class="reference external" href="http://pyserial.sourceforge.net/">PySerial</a></li>
 <li><a class="reference external" href="http://pythonhosted.org/quantities/">quantities</a></li>
-<li><a class="reference external" href="http://pythonhosted.org/flufl.enum/">flufl.enum</a></li>
+<li><a class="reference external" href="http://pythonhosted.org/flufl.enum/">flufl.enum</a> version 4.0 or later</li>
 </ul>
+</div>
+<div class="section" id="optional-dependencies">
+<h4>Optional Dependencies<a class="headerlink" href="#optional-dependencies" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://bitbucket.org/xi/pyyaml">PyYAML</a> (required for configuration file support)</li>
+<li><a class="reference external" href="http://sourceforge.net/apps/trac/pyusb/">PyUSB</a> (version 1.0a or higher, required for raw USB support)</li>
+<li><a class="reference external" href="http://pyvisa.sourceforge.net/">PyVISA</a> (required for accessing instruments via VISA library)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="os-specific-instructions">
+<h2>OS-Specific Instructions<a class="headerlink" href="#os-specific-instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="raw-usb-device-configuration">
+<h4>Raw USB Device Configuration<a class="headerlink" href="#raw-usb-device-configuration" title="Permalink to this headline">¶</a></h4>
+<p>To enable writing to a USB device in raw or usbtmc mode, the device file
+must be readable writable by users. As this is not normally the default, you
+need to add rules to <tt class="docutils literal"><span class="pre">/etc/udev/rules.d</span></tt> to override the default permissions.
+For instance, to add a Tektronix DPO 4104 oscilloscope with world-writable
+permissions, add the following to rules.d:</p>
+<div class="highlight-python"><pre>ATTRS{idVendor}=="0699", ATTRS{idProduct}=="0401", SYMLINK+="tekdpo4104", MODE="0666"</pre>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This configuration causes the USB device to be world-writable. Do not do
+this on a multi-user system with untrusted users.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -78,7 +112,18 @@
   <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#installing">Installing</a><ul>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a><ul>
+<li><a class="reference internal" href="#required-dependencies">Required Dependencies</a></li>
+<li><a class="reference internal" href="#optional-dependencies">Optional Dependencies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#os-specific-instructions">OS-Specific Instructions</a><ul>
+<li><a class="reference internal" href="#linux">Linux</a><ul>
+<li><a class="reference internal" href="#raw-usb-device-configuration">Raw USB Device Configuration</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
