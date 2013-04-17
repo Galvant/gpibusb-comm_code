@@ -57,10 +57,190 @@
   <div class="section" id="instrument-base-classes">
 <h1>Instrument Base Classes<a class="headerlink" href="#instrument-base-classes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="instrument-base-class-for-instrument-communication">
-<h2><tt class="xref py py-class docutils literal"><span class="pre">Instrument</span></tt> - Base class for instrument communication<a class="headerlink" href="#instrument-base-class-for-instrument-communication" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-class docutils literal"><span class="pre">Instrument</span></tt></a> - Base class for instrument communication<a class="headerlink" href="#instrument-base-class-for-instrument-communication" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.Instrument">
+<em class="property">class </em><tt class="descclassname">instruments.</tt><tt class="descname">Instrument</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.Instrument" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.Instrument.binblockread">
+<tt class="descname">binblockread</tt><big>(</big><em>dataWidth</em><big>)</big><a class="headerlink" href="#instruments.Instrument.binblockread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a binary data block from attached instrument.
+This requires that the instrument respond in a particular manner
+as EOL terminators naturally can not be used in binary transfers.</p>
+<p>The format is as follows:
+#{number of following digits:1-9}{num of bytes to be read}{data bytes}</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_from_uri">
+<em class="property">classmethod </em><tt class="descname">open_from_uri</tt><big>(</big><em>uri</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_from_uri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an instrument URI, opens the instrument named by that URI.
+Instrument URIs are formatted with a scheme, such as <tt class="docutils literal"><span class="pre">serial://</span></tt>,
+followed by a location that is interpreted differently for each
+scheme. The following examples URIs demonstrate the currently supported
+schemes and location formats:</p>
+<div class="highlight-python"><pre>serial://COM3
+serial:///dev/ttyACM0
+tcpip://192.168.0.10:4100
+gpib+usb://COM3/15
+gpib+serial://COM3/15
+gpib+serial:///dev/ttyACM0/15 # Currently non-functional.
+visa://USB::0x0699::0x0401::C0000001::0::INSTR</pre>
+</div>
+<p>For the <tt class="docutils literal"><span class="pre">serial</span></tt> URI scheme, baud rates may be explicitly specified
+using the query parameter <tt class="docutils literal"><span class="pre">baud=</span></tt>, as in the example
+<tt class="docutils literal"><span class="pre">serial://COM9?baud=115200</span></tt>. If not specified, the baud rate
+is assumed to be 115200.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uri</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; URI for the instrument to be loaded.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a href="#id1"><span class="problematic" id="id2">`PySerial`_</span></a> documentation for serial port URI format</p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_gpibethernet">
+<em class="property">classmethod </em><tt class="descname">open_gpibethernet</tt><big>(</big><em>host</em>, <em>port</em>, <em>gpib_address</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_gpibethernet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_gpibusb">
+<em class="property">classmethod </em><tt class="descname">open_gpibusb</tt><big>(</big><em>port</em>, <em>gpib_address</em>, <em>timeout=3</em>, <em>writeTimeout=3</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_gpibusb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_serial">
+<em class="property">classmethod </em><tt class="descname">open_serial</tt><big>(</big><em>port</em>, <em>baud</em>, <em>timeout=3</em>, <em>writeTimeout=3</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_tcpip">
+<em class="property">classmethod </em><tt class="descname">open_tcpip</tt><big>(</big><em>host</em>, <em>port</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_tcpip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_usb">
+<em class="property">classmethod </em><tt class="descname">open_usb</tt><big>(</big><em>vid</em>, <em>pid</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_usb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="instruments.Instrument.open_visa">
+<em class="property">classmethod </em><tt class="descname">open_visa</tt><big>(</big><em>resource_name</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_visa" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.Instrument.query">
+<tt class="descname">query</tt><big>(</big><em>cmd</em>, <em>size=-1</em><big>)</big><a class="headerlink" href="#instruments.Instrument.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the given query.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmd</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; String containing the query to 
+execute.</li>
+<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of bytes to be read. Default is read until
+termination character is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The result of the query as returned by the
+connected instrument.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Instrument.sendcmd">
+<tt class="descname">sendcmd</tt><big>(</big><em>cmd</em><big>)</big><a class="headerlink" href="#instruments.Instrument.sendcmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a command without waiting for a response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmd</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; String containing the command to
+be sent.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Instrument.write">
+<tt class="descname">write</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#instruments.Instrument.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data string to GPIB connected instrument.
+This function sends all the necessary GI-GPIB adapter internal commands
+that are required for the specified instrument.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Instrument.URI_SCHEMES">
+<tt class="descname">URI_SCHEMES</tt><em class="property"> = ['serial', 'tcpip', 'gpib+usb', 'gpib+serial', 'visa']</em><a class="headerlink" href="#instruments.Instrument.URI_SCHEMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Instrument.address">
+<tt class="descname">address</tt><a class="headerlink" href="#instruments.Instrument.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Instrument.terminator">
+<tt class="descname">terminator</tt><a class="headerlink" href="#instruments.Instrument.terminator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Instrument.timeout">
+<tt class="descname">timeout</tt><a class="headerlink" href="#instruments.Instrument.timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="multimeter-abstract-class-for-multimeter-instruments">
-<h2><tt class="xref py py-class docutils literal"><span class="pre">Multimeter</span></tt> - Abstract class for multimeter instruments<a class="headerlink" href="#multimeter-abstract-class-for-multimeter-instruments" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference internal" href="#instruments.Multimeter" title="instruments.Multimeter"><tt class="xref py py-class docutils literal"><span class="pre">Multimeter</span></tt></a> - Abstract class for multimeter instruments<a class="headerlink" href="#multimeter-abstract-class-for-multimeter-instruments" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.Multimeter">
+<em class="property">class </em><tt class="descclassname">instruments.</tt><tt class="descname">Multimeter</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.Multimeter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.Multimeter.getmode">
+<tt class="descname">getmode</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.Multimeter.getmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read measurement mode the multimeter is currently in.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.measure">
+<tt class="descname">measure</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a measurement as specified by mode parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.setmode">
+<tt class="descname">setmode</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.setmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the mode the multimeter is in.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Multimeter.mode">
+<tt class="descname">mode</tt><a class="headerlink" href="#instruments.Multimeter.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read measurement mode the multimeter is currently in.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
