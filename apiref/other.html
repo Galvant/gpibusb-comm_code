@@ -28,6 +28,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="GPIB USB Adapter Driver Library 1.0alpha1 documentation" href="../index.html" />
     <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="next" title="Configuration File Support" href="config.html" />
     <link rel="prev" title="Stanford Research Systems Instruments" href="srs.html" /> 
   </head>
   <body>
@@ -37,6 +38,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="config.html" title="Configuration File Support"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="srs.html" title="Stanford Research Systems Instruments"
              accesskey="P">previous</a> |</li>
@@ -53,181 +57,16 @@
   <div class="section" id="other-instruments">
 <h1>Other Instruments<a class="headerlink" href="#other-instruments" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="newportesp301">
-<h2><a class="reference internal" href="#instruments.other.NewportESP301" title="instruments.other.NewportESP301"><tt class="xref py py-class docutils literal"><span class="pre">NewportESP301</span></tt></a><a class="headerlink" href="#newportesp301" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="instruments.other.NewportESP301">
-<em class="property">class </em><tt class="descclassname">instruments.other.</tt><tt class="descname">NewportESP301</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handles communication with the Newport ESP-301 multiple-axis motor
-controller using the protocol documented in the <a class="reference external" href="http://assets.newport.com/webDocuments-EN/images/14294.pdf">user&#8217;s guide</a>.</p>
-<dl class="method">
-<dt id="instruments.other.NewportESP301.define_program">
-<tt class="descname">define_program</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.define_program" title="Permalink to this definition">¶</a></dt>
-<dd><p>Erases any existing programs with a given program ID
-and instructs the device to record the commands within this
-<tt class="docutils literal"><span class="pre">with</span></tt> block to be saved as a program with that ID.</p>
-<p>For instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">controller</span> <span class="o">=</span> <span class="n">NewportESP301</span><span class="o">.</span><span class="n">open_serial</span><span class="p">(</span><span class="s">&quot;COM3&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">controller</span><span class="o">.</span><span class="n">define_program</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
-</pre></div>
+<h2><tt class="xref py py-class docutils literal"><span class="pre">NewportESP301</span></tt><a class="headerlink" href="#newportesp301" title="Permalink to this headline">¶</a></h2>
 </div>
-<p>...     controller.axis[0].move(0.001, absolute=False)
-...
-&gt;&gt;&gt; controller.run_program(15)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>program_id</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer label for the new program.
-Must be in <tt class="docutils literal"><span class="pre">xrange(1,</span> <span class="pre">101)</span></tt>.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="instruments.other.NewportESP301.reset">
-<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.reset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Causes the device to perform a hardware reset. Note that
-this method is only effective if the watchdog timer is enabled
-by the physical jumpers on the ESP-301. Please see the <a class="reference external" href="http://assets.newport.com/webDocuments-EN/images/14294.pdf">user&#8217;s guide</a>
-for more information.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="instruments.other.NewportESP301.run_program">
-<tt class="descname">run_program</tt><big>(</big><em>program_id</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.run_program" title="Permalink to this definition">¶</a></dt>
-<dd><p>Runs a previously defined user program with a given program ID.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="instruments.other.NewportESP301.search_for_home">
-<tt class="descname">search_for_home</tt><big>(</big><em>search_mode=&lt;EnumValue: NewportESP301HomeSearchMode.zero_position_count [value=0]&gt;</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.search_for_home" title="Permalink to this definition">¶</a></dt>
-<dd><p>Searches each axis sequentially
-for home using the method specified by <tt class="docutils literal"><span class="pre">search_mode</span></tt>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>search_mode</strong> (<em>NewportESP301HomeSearchMode</em>) &#8211; Method to detect when
-Home has been found.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301.axis">
-<tt class="descname">axis</tt><a class="headerlink" href="#instruments.other.NewportESP301.axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the axes of the motor controller as a sequence. For instance,
-to move along a given axis:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">controller</span> <span class="o">=</span> <span class="n">NewportESP301</span><span class="o">.</span><span class="n">open_serial</span><span class="p">(</span><span class="s">&quot;COM3&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">controller</span><span class="o">.</span><span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">-</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
+<div class="section" id="phasematrixfsw0020">
+<h2><tt class="xref py py-class docutils literal"><span class="pre">PhaseMatrixFSW0020</span></tt><a class="headerlink" href="#phasematrixfsw0020" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="units">
+<h3>Units<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h3>
+<p>Units are identified to the Phase Matrix FSW-0020 using the
+<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> class implemented by the <a class="reference external" href="http://pythonhosted.org/quantities/user/tutorial.html#quantities" title="(in quantities v0.10.0)"><tt class="xref py py-obj docutils literal"><span class="pre">quantities</span></tt></a> package. To support
+the FSW-0020, we provide several additional unit quantities, listed here.</p>
 </div>
-<p>Note that the axes are numbered starting from zero, so that
-Python idioms can be used more easily. This is not the same convention
-used in the Newport ESP-301 user&#8217;s manual, and so care must
-be taken when converting examples.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="instruments.other.NewportESP301Axis">
-<em class="property">class </em><tt class="descclassname">instruments.other.</tt><tt class="descname">NewportESP301Axis</tt><big>(</big><em>controller</em>, <em>axis_id</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encapsulates communication concerning a single axis
-of an ESP-301 controller. This class should not be
-instantiated by the user directly, but is
-returned by <a class="reference internal" href="#instruments.other.NewportESP301.axis" title="instruments.other.NewportESP301.axis"><tt class="xref py py-obj docutils literal"><span class="pre">NewportESP301.axis</span></tt></a>.</p>
-<dl class="method">
-<dt id="instruments.other.NewportESP301Axis.move">
-<tt class="descname">move</tt><big>(</big><em>pos</em>, <em>absolute=True</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.move" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pos</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) &#8211; Position to set move to along this axis.</li>
-<li><strong>absolute</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; If <a class="reference external" href="http://docs.python.org/library/constants.html#True" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a>, the position <tt class="docutils literal"><span class="pre">pos</span></tt> is
-interpreted as relative to the zero-point of the encoder.
-If <a class="reference external" href="http://docs.python.org/library/constants.html#False" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a>, <tt class="docutils literal"><span class="pre">pos</span></tt> is interpreted
-as relative to the current position of this axis.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="instruments.other.NewportESP301Axis.search_for_home">
-<tt class="descname">search_for_home</tt><big>(</big><em>search_mode=&lt;EnumValue: NewportESP301HomeSearchMode.zero_position_count [value=0]&gt;</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.search_for_home" title="Permalink to this definition">¶</a></dt>
-<dd><p>Searches this axis only
-for home using the method specified by <tt class="docutils literal"><span class="pre">search_mode</span></tt>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>search_mode</strong> (<em>NewportESP301HomeSearchMode</em>) &#8211; Method to detect when
-Home has been found.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="instruments.other.NewportESP301Axis.wait_for_motion">
-<tt class="descname">wait_for_motion</tt><big>(</big><em>poll_interval=0.01</em>, <em>max_wait=None</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.wait_for_motion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Blocks until all movement along this axis is complete, as reported
-by <a class="reference internal" href="#instruments.other.NewportESP301Axis.is_motion_done" title="instruments.other.NewportESP301Axis.is_motion_done"><tt class="xref py py-obj docutils literal"><span class="pre">is_motion_done</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>poll_interval</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; How long (in seconds) to sleep between
-checking if the motion is complete.</li>
-<li><strong>max_wait</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Maximum amount of time to wait before
-raising a <tt class="xref py py-obj docutils literal"><span class="pre">IOError</span></tt>. If <a class="reference external" href="http://docs.python.org/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, this method will wait
-indefinitely.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.acceleration">
-<tt class="descname">acceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.acceleration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.deacceleration">
-<tt class="descname">deacceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.deacceleration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.is_motion_done">
-<tt class="descname">is_motion_done</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.is_motion_done" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.python.org/library/constants.html#True" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> if and only if all motion commands have
-completed. This method can be used to wait for
-a motion command to complete before sending the next
-command.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.max_velocity">
-<tt class="descname">max_velocity</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_velocity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.velocity">
-<tt class="descname">velocity</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.velocity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 </div>
 </div>
 
@@ -241,6 +80,10 @@ command.</p>
   <ul>
 <li><a class="reference internal" href="#">Other Instruments</a><ul>
 <li><a class="reference internal" href="#newportesp301"><tt class="docutils literal"><span class="pre">NewportESP301</span></tt></a></li>
+<li><a class="reference internal" href="#phasematrixfsw0020"><tt class="docutils literal"><span class="pre">PhaseMatrixFSW0020</span></tt></a><ul>
+<li><a class="reference internal" href="#units">Units</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -248,6 +91,9 @@ command.</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="srs.html"
                         title="previous chapter">Stanford Research Systems Instruments</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="config.html"
+                        title="next chapter">Configuration File Support</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/apiref/other.txt"
@@ -276,6 +122,9 @@ command.</p>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="config.html" title="Configuration File Support"
+             >next</a> |</li>
         <li class="right" >
           <a href="srs.html" title="Stanford Research Systems Instruments"
              >previous</a> |</li>
