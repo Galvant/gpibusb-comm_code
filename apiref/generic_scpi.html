@@ -64,22 +64,33 @@
 <dd><dl class="method">
 <dt id="instruments.generic_scpi.SCPIInstrument.clear">
 <tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Clear instrument. Consult manual for specifics related to that 
+instrument.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="instruments.generic_scpi.SCPIInstrument.reset">
 <tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.reset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Reset instrument. On many instruments this is a factory reset and will 
+revert all settings to default.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="instruments.generic_scpi.SCPIInstrument.trigger">
 <tt class="descname">trigger</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.trigger" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Send a software trigger event to the instrument. On most instruments 
+this will cause some sort of hardware event to start. For example, a 
+multimeter might take a measurement.</p>
+<p>This software trigger usually performs the same action as a hardware 
+trigger to your instrument.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="instruments.generic_scpi.SCPIInstrument.wait_to_continue">
 <tt class="descname">wait_to_continue</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.wait_to_continue" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Instruct the instrument to wait until it has completed all received 
+commands before continuing.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.generic_scpi.SCPIInstrument.name">
@@ -99,17 +110,45 @@ standard SCPI command <tt class="docutils literal"><span class="pre">*IDN?</span
 <dl class="attribute">
 <dt id="instruments.generic_scpi.SCPIInstrument.op_complete">
 <tt class="descname">op_complete</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.op_complete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check if all operations sent to the instrument have been completed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.generic_scpi.SCPIInstrument.power_on_status">
 <tt class="descname">power_on_status</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.power_on_status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets/sets the power on status for the instrument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.generic_scpi.SCPIInstrument.self_test_ok">
 <tt class="descname">self_test_ok</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.self_test_ok" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets the results of the instrument&#8217;s self test. This lets you check 
+if the self test was sucessful or not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -133,8 +172,9 @@ instrument value and appropriate units. If no appropriate units exist,
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>instruments.generic_scpi.MultimeterMode</em>) &#8211; Desired measurement mode.
-If set to <a class="reference external" href="http://docs.python.org/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, will default to the current mode.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>instruments.generic_scpi.MultimeterMode</em>) &#8211; Desired 
+measurement mode. If set to <a class="reference external" href="http://docs.python.org/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, will default to the current 
+mode.</td>
 </tr>
 </tbody>
 </table>
@@ -143,7 +183,15 @@ If set to <a class="reference external" href="http://docs.python.org/library/con
 <dl class="attribute">
 <dt id="instruments.generic_scpi.SCPIMultimeter.mode">
 <tt class="descname">mode</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get or set the current measurement mode for the multimeter.</p>
+<dd><p>Gets/sets the current measurement mode for the multimeter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">instruments.generic_scpi.MultimeterMode</span></tt></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

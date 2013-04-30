@@ -62,30 +62,6 @@
 <dt id="instruments.srs.SRS345">
 <em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRS345</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS345" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
-<dt id="instruments.srs.SRS345.amplitude">
-<tt class="descname">amplitude</tt><a class="headerlink" href="#instruments.srs.SRS345.amplitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets/sets the output amplitude of the function generator.</p>
-<p>If set with units of <span class="math">\(\text{dBm}\)</span>, then no voltage mode can
-be passed.</p>
-<p>If set with units of <span class="math">\(\text{V}\)</span> as a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or a
-<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> without a voltage mode, then the voltage mode is assumed to be
-peak-to-peak.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified, or assumed to be <span class="math">\(\text{V}\)</span> if not
-specified.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body">Either a <a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">tuple</span></tt></a> of a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> and a
-<a class="reference internal" href="#instruments.srs.SRS345VoltageMode" title="instruments.srs.SRS345VoltageMode"><tt class="xref py py-obj docutils literal"><span class="pre">SRS345VoltageMode</span></tt></a>, or a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> if no voltage mode
-applies.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="instruments.srs.SRS345.frequency">
 <tt class="descname">frequency</tt><a class="headerlink" href="#instruments.srs.SRS345.frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the output frequency.</p>
@@ -142,21 +118,6 @@ otherwise.</td>
 <div class="section" id="constants-and-enumerations">
 <h3>Constants and Enumerations<a class="headerlink" href="#constants-and-enumerations" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="instruments.srs.SRS345VoltageMode">
-<em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRS345VoltageMode</tt><a class="headerlink" href="#instruments.srs.SRS345VoltageMode" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="instruments.srs.SRS345VoltageMode.peak_to_peak">
-<tt class="descname">peak_to_peak</tt><em class="property"> = &lt;EnumValue: SRS345VoltageMode.peak_to_peak [value=VP]&gt;</em><a class="headerlink" href="#instruments.srs.SRS345VoltageMode.peak_to_peak" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRS345VoltageMode.rms">
-<tt class="descname">rms</tt><em class="property"> = &lt;EnumValue: SRS345VoltageMode.rms [value=VR]&gt;</em><a class="headerlink" href="#instruments.srs.SRS345VoltageMode.rms" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
 <dt id="instruments.srs.SRS345Function">
 <em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRS345Function</tt><a class="headerlink" href="#instruments.srs.SRS345Function" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
@@ -194,7 +155,496 @@ otherwise.</td>
 </div>
 </div>
 <div class="section" id="srs830">
-<h2><tt class="xref py py-class docutils literal"><span class="pre">SRS830</span></tt><a class="headerlink" href="#srs830" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference internal" href="#instruments.srs.SRS830" title="instruments.srs.SRS830"><tt class="xref py py-class docutils literal"><span class="pre">SRS830</span></tt></a><a class="headerlink" href="#srs830" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.srs.SRS830">
+<em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRS830</tt><big>(</big><em>filelike</em>, <em>outx_mode=None</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830" title="Permalink to this definition">¶</a></dt>
+<dd><p>Communicates with a Stanford Research Systems 830 Lock-In Amplifier</p>
+<dl class="class">
+<dt id="instruments.srs.SRS830.BufferMode">
+<em class="property">class </em><tt class="descname">BufferMode</tt><a class="headerlink" href="#instruments.srs.SRS830.BufferMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum for the SRS830 buffer modes.</p>
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.BufferMode.loop">
+<tt class="descname">loop</tt><em class="property"> = &lt;EnumValue: BufferMode.loop [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.BufferMode.loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.BufferMode.one_shot">
+<tt class="descname">one_shot</tt><em class="property"> = &lt;EnumValue: BufferMode.one_shot [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.BufferMode.one_shot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.srs.SRS830.Coupling">
+<em class="property">class </em><tt class="descclassname">SRS830.</tt><tt class="descname">Coupling</tt><a class="headerlink" href="#instruments.srs.SRS830.Coupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum for the SRS830 channel coupling settings.</p>
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Coupling.ac">
+<tt class="descname">ac</tt><em class="property"> = &lt;EnumValue: Coupling.ac [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Coupling.ac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Coupling.dc">
+<tt class="descname">dc</tt><em class="property"> = &lt;EnumValue: Coupling.dc [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Coupling.dc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.srs.SRS830.FreqSource">
+<em class="property">class </em><tt class="descclassname">SRS830.</tt><tt class="descname">FreqSource</tt><a class="headerlink" href="#instruments.srs.SRS830.FreqSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum for the SRS830 frequency source settings.</p>
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.FreqSource.external">
+<tt class="descname">external</tt><em class="property"> = &lt;EnumValue: FreqSource.external [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.FreqSource.external" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.FreqSource.internal">
+<tt class="descname">internal</tt><em class="property"> = &lt;EnumValue: FreqSource.internal [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.FreqSource.internal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.srs.SRS830.Mode">
+<em class="property">class </em><tt class="descclassname">SRS830.</tt><tt class="descname">Mode</tt><a class="headerlink" href="#instruments.srs.SRS830.Mode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.aux1">
+<tt class="descname">aux1</tt><em class="property"> = &lt;EnumValue: Mode.aux1 [value=aux1]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.aux1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.aux2">
+<tt class="descname">aux2</tt><em class="property"> = &lt;EnumValue: Mode.aux2 [value=aux2]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.aux2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.aux3">
+<tt class="descname">aux3</tt><em class="property"> = &lt;EnumValue: Mode.aux3 [value=aux3]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.aux3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.aux4">
+<tt class="descname">aux4</tt><em class="property"> = &lt;EnumValue: Mode.aux4 [value=aux4]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.aux4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.ch1">
+<tt class="descname">ch1</tt><em class="property"> = &lt;EnumValue: Mode.ch1 [value=ch1]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.ch1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.ch2">
+<tt class="descname">ch2</tt><em class="property"> = &lt;EnumValue: Mode.ch2 [value=ch2]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.ch2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.none">
+<tt class="descname">none</tt><em class="property"> = &lt;EnumValue: Mode.none [value=none]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.r">
+<tt class="descname">r</tt><em class="property"> = &lt;EnumValue: Mode.r [value=r]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.r" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.ref">
+<tt class="descname">ref</tt><em class="property"> = &lt;EnumValue: Mode.ref [value=ref]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.theta">
+<tt class="descname">theta</tt><em class="property"> = &lt;EnumValue: Mode.theta [value=theta]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.theta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.x">
+<tt class="descname">x</tt><em class="property"> = &lt;EnumValue: Mode.x [value=x]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.xnoise">
+<tt class="descname">xnoise</tt><em class="property"> = &lt;EnumValue: Mode.xnoise [value=xnoise]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.xnoise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.y">
+<tt class="descname">y</tt><em class="property"> = &lt;EnumValue: Mode.y [value=y]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.Mode.ynoise">
+<tt class="descname">ynoise</tt><em class="property"> = &lt;EnumValue: Mode.ynoise [value=ynoise]&gt;</em><a class="headerlink" href="#instruments.srs.SRS830.Mode.ynoise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.auto_offset">
+<tt class="descclassname">SRS830.</tt><tt class="descname">auto_offset</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.auto_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a specific channel mode to auto offset. This is the same as 
+pressing the auto offset key on the display.</p>
+<p>It sets the offset of the mode specified to zero.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference internal" href="#instruments.srs.SRS830.Mode" title="instruments.srs.SRS830.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Mode</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Target mode of auto_offset function. Valid inputs are
+{X|Y|R}.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.auto_phase">
+<tt class="descclassname">SRS830.</tt><tt class="descname">auto_phase</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.auto_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the lock-in to auto phase.
+This does the same thing as pushing the auto phase button.</p>
+<p>Do not send this message again without waiting the correct amount
+of time for the lock-in to finish.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.clear_data_buffer">
+<tt class="descclassname">SRS830.</tt><tt class="descname">clear_data_buffer</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.clear_data_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the data buffer of the SRS830.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.data_snap">
+<tt class="descclassname">SRS830.</tt><tt class="descname">data_snap</tt><big>(</big><em>mode1</em>, <em>mode2</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.data_snap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a snapshot of the current parameters are defined by variables 
+mode1 and mode2.</p>
+<p>For combinations (X,Y) and (R,THETA), they are taken at the same
+instant. All other combinations are done sequentially, and may
+not represent values taken from the same timestamp.</p>
+<p>Returns a list of floats, arranged in the order that they are
+given in the function input parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>modeX</strong> (<a class="reference internal" href="#instruments.srs.SRS830.Mode" title="instruments.srs.SRS830.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Mode</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Mode to take data snap. Valid inputs are given by:
+{X|Y|R|THETA|AUX1|AUX2|AUX3|AUX4|REF|CH1|CH2}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.init">
+<tt class="descclassname">SRS830.</tt><tt class="descname">init</tt><big>(</big><em>sample_rate</em>, <em>buffer_mode</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function to prepare the SRS830 for measurement.
+Sets both the data sampling rate and the end of buffer mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sample_rate</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; The desired sampling
+rate. Acceptable set values are <span class="math">\(2^n\)</span> where 
+<span class="math">\(n \in \{-4...+9\}\)</span> in units Hertz or the string <tt class="xref py py-obj docutils literal"><span class="pre">trigger</span></tt>.</li>
+<li><strong>buffer_mode</strong> (<em>SRS830.BufferMode</em>) &#8211; This sets the behaviour of the 
+instrument when the data storage buffer is full. Setting to 
+<tt class="xref py py-obj docutils literal"><span class="pre">one_shot</span></tt> will stop acquisition, while <tt class="xref py py-obj docutils literal"><span class="pre">loop</span></tt> will repeat from 
+the start.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.pause">
+<tt class="descclassname">SRS830.</tt><tt class="descname">pause</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the instrument pause data capture.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.read_data_buffer">
+<tt class="descclassname">SRS830.</tt><tt class="descname">read_data_buffer</tt><big>(</big><em>channel</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.read_data_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the entire data buffer for a specific channel.
+Transfer is done in ASCII mode. Although binary would be faster,
+this is not currently implemented.</p>
+<p>Returns a list of floats containing instrument&#8217;s measurements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel</strong> (<a class="reference internal" href="#instruments.srs.SRS830.Mode" title="instruments.srs.SRS830.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">SRS830.Mode</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Channel data buffer to read from. Valid channels are
+given by {CH1|CH2}.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.set_channel_display">
+<tt class="descclassname">SRS830.</tt><tt class="descname">set_channel_display</tt><big>(</big><em>channel</em>, <em>display</em>, <em>ratio</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.set_channel_display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the display of the two channels.
+Channel 1 can display X, R, X Noise, Aux In 1, Aux In 2
+Channel 2 can display Y, Theta, Y Noise, Aux In 3, Aux In 4</p>
+<p>Channel 1 can have ratio of None, Aux In 1, Aux In 2
+Channel 2 can have ratio of None, Aux In 3, Aux In 4</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>channel</strong> (<a class="reference internal" href="#instruments.srs.SRS830.Mode" title="instruments.srs.SRS830.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Mode</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Channel you wish to set the display of. Valid input is
+one of {CH1|CH2}.</li>
+<li><strong>display</strong> (<a class="reference internal" href="#instruments.srs.SRS830.Mode" title="instruments.srs.SRS830.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Mode</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Setting the channel will be changed to. Valid 
+input is one of {X|Y|R|THETA|XNOISE|YNOISE|AUX1|AUX2|AUX3|AUX4}</li>
+<li><strong>ratio</strong> (<a class="reference internal" href="#instruments.srs.SRS830.Mode" title="instruments.srs.SRS830.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Mode</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Desired ratio setting for this channel. Valid input
+is one of {NONE|AUX1|AUX2|AUX3|AUX4}</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.set_offset_expand">
+<tt class="descclassname">SRS830.</tt><tt class="descname">set_offset_expand</tt><big>(</big><em>mode</em>, <em>offset</em>, <em>expand</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.set_offset_expand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the channel offset and expand parameters.
+Offset is a percentage, and expand is given as a multiplication
+factor of 1, 10, or 100.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mode</strong> (<a class="reference internal" href="#instruments.srs.SRS830.Mode" title="instruments.srs.SRS830.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">SRS830.Mode</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; The channel mode that you wish to change the 
+offset and/or the expand of. Valid modes are X, Y, and R.</li>
+<li><strong>offset</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Offset of the mode, given as a percent.
+offset = &lt;-105...+105&gt;.</li>
+<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Expansion factor for the measurement. Valid input
+is {1|10|100}.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.start_data_transfer">
+<tt class="descclassname">SRS830.</tt><tt class="descname">start_data_transfer</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.start_data_transfer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function to start the actual data transfer.
+Sets the transfer mode to FAST2, and triggers the data transfer
+to start after a delay of 0.5 seconds.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.start_scan">
+<tt class="descclassname">SRS830.</tt><tt class="descname">start_scan</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.start_scan" title="Permalink to this definition">¶</a></dt>
+<dd><p>After setting the data transfer on via the dataTransfer function,
+this is used to start the scan. The scan starts after a delay of
+0.5 seconds.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.srs.SRS830.take_measurement">
+<tt class="descclassname">SRS830.</tt><tt class="descname">take_measurement</tt><big>(</big><em>sample_rate</em>, <em>num_samples</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830.take_measurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function that allows you to easily take measurements with a
+specified sample rate and number of desired samples.</p>
+<p>Function will call time.sleep() for the required amount of time it will
+take the instrument to complete this sampling operation.</p>
+<p>Returns a list containing two items, each of which are lists containing
+the channel data. The order is [[Ch1 data], [Ch2 data]].</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sample_rate</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Set the desired sample rate of the 
+measurement. See <a class="reference internal" href="#instruments.srs.SRS830.sample_rate" title="instruments.srs.SRS830.sample_rate"><tt class="xref py py-obj docutils literal"><span class="pre">sample_rate</span></tt></a> for more information.</li>
+<li><strong>num_samples</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of samples to take.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.amplitude">
+<tt class="descclassname">SRS830.</tt><tt class="descname">amplitude</tt><a class="headerlink" href="#instruments.srs.SRS830.amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/set the amplitude of the internal reference signal.</p>
+<p>Set value should be 0.004 &lt;= newval &lt;= 5.000</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units volts. Value should be specified as peak-to-peak.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units volts peak-to-peak.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.buffer_mode">
+<tt class="descclassname">SRS830.</tt><tt class="descname">buffer_mode</tt><a class="headerlink" href="#instruments.srs.SRS830.buffer_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the end of buffer mode.</p>
+<p>This sets the behaviour of the instrument when the data storage buffer
+is full. Setting to <tt class="xref py py-obj docutils literal"><span class="pre">one_shot</span></tt> will stop acquisition, while <tt class="xref py py-obj docutils literal"><span class="pre">loop</span></tt>
+will repeat from the start.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference internal" href="#instruments.srs.SRS830.BufferMode" title="instruments.srs.SRS830.BufferMode"><tt class="xref py py-obj docutils literal"><span class="pre">SRS830.BufferMode</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.coupling">
+<tt class="descclassname">SRS830.</tt><tt class="descname">coupling</tt><a class="headerlink" href="#instruments.srs.SRS830.coupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the input coupling to either &#8216;ac&#8217; or &#8216;dc&#8217;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference internal" href="#instruments.srs.SRS830.Coupling" title="instruments.srs.SRS830.Coupling"><tt class="xref py py-obj docutils literal"><span class="pre">SRS830.Coupling</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.data_transfer">
+<tt class="descclassname">SRS830.</tt><tt class="descname">data_transfer</tt><a class="headerlink" href="#instruments.srs.SRS830.data_transfer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the data transfer status.</p>
+<p>Note that this function only makes use of 2 of the 3 data transfer modes
+supported by the SRS830. The supported modes are FAST0 and FAST2. The
+other, FAST1, is for legacy systems which this package does not support.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.frequency">
+<tt class="descclassname">SRS830.</tt><tt class="descname">frequency</tt><a class="headerlink" href="#instruments.srs.SRS830.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the lock-in amplifier reference frequency.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units Hertz.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units Hertz.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.frequency_source">
+<tt class="descclassname">SRS830.</tt><tt class="descname">frequency_source</tt><a class="headerlink" href="#instruments.srs.SRS830.frequency_source" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Gets/sets the frequency source used. This is either an external source,</dt>
+<dd>or uses the internal reference.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference internal" href="#instruments.srs.SRS830.FreqSource" title="instruments.srs.SRS830.FreqSource"><tt class="xref py py-obj docutils literal"><span class="pre">SRS830.FreqSource</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.input_shield_ground">
+<tt class="descclassname">SRS830.</tt><tt class="descname">input_shield_ground</tt><a class="headerlink" href="#instruments.srs.SRS830.input_shield_ground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function sets the input shield grounding to either &#8216;float&#8217; or &#8216;ground&#8217;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.num_data_points">
+<tt class="descclassname">SRS830.</tt><tt class="descname">num_data_points</tt><a class="headerlink" href="#instruments.srs.SRS830.num_data_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the number of data sets in the SRS830 buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.phase">
+<tt class="descclassname">SRS830.</tt><tt class="descname">phase</tt><a class="headerlink" href="#instruments.srs.SRS830.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/set the phase of the internal reference signal.</p>
+<p>Set value should be -360deg &lt;= newval &lt; +730deg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units degrees.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRS830.sample_rate">
+<tt class="descclassname">SRS830.</tt><tt class="descname">sample_rate</tt><a class="headerlink" href="#instruments.srs.SRS830.sample_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the data sampling rate of the lock-in.</p>
+<p>Acceptable set values are <span class="math">\(2^n\)</span> where <span class="math">\(n \in \{-4...+9\}\)</span> or
+the string <tt class="xref py py-obj docutils literal"><span class="pre">trigger</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units Hertz.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="srsdg645">
 <h2><a class="reference internal" href="#instruments.srs.SRSDG645" title="instruments.srs.SRSDG645"><tt class="xref py py-class docutils literal"><span class="pre">SRSDG645</span></tt></a><a class="headerlink" href="#srsdg645" title="Permalink to this headline">¶</a></h2>
@@ -203,21 +653,196 @@ otherwise.</td>
 <em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRSDG645</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.srs.SRSDG645" title="Permalink to this definition">¶</a></dt>
 <dd><p>Communicates with a Stanford Research Systems DG645 digital delay generator,
 using the SCPI commands documented in the <a class="reference external" href="http://www.thinksrs.com/downloads/PDFs/Manuals/DG645m.pdf">user&#8217;s guide</a>.</p>
+<dl class="class">
+<dt id="instruments.srs.SRSDG645.Channels">
+<em class="property">class </em><tt class="descname">Channels</tt><a class="headerlink" href="#instruments.srs.SRSDG645.Channels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.A">
+<tt class="descname">A</tt><em class="property"> = &lt;EnumValue: Channels.A [value=2]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.A" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.B">
+<tt class="descname">B</tt><em class="property"> = &lt;EnumValue: Channels.B [value=3]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.B" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.C">
+<tt class="descname">C</tt><em class="property"> = &lt;EnumValue: Channels.C [value=4]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.C" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.D">
+<tt class="descname">D</tt><em class="property"> = &lt;EnumValue: Channels.D [value=5]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.E">
+<tt class="descname">E</tt><em class="property"> = &lt;EnumValue: Channels.E [value=6]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.E" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.F">
+<tt class="descname">F</tt><em class="property"> = &lt;EnumValue: Channels.F [value=7]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.F" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.G">
+<tt class="descname">G</tt><em class="property"> = &lt;EnumValue: Channels.G [value=8]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.G" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.H">
+<tt class="descname">H</tt><em class="property"> = &lt;EnumValue: Channels.H [value=9]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.H" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.T0">
+<tt class="descname">T0</tt><em class="property"> = &lt;EnumValue: Channels.T0 [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.T0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.Channels.T1">
+<tt class="descname">T1</tt><em class="property"> = &lt;EnumValue: Channels.T1 [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.Channels.T1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.srs.SRSDG645.DisplayMode">
+<em class="property">class </em><tt class="descclassname">SRSDG645.</tt><tt class="descname">DisplayMode</tt><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.adv_triggering_enable">
+<tt class="descname">adv_triggering_enable</tt><em class="property"> = &lt;EnumValue: DisplayMode.adv_triggering_enable [value=4]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.adv_triggering_enable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.burst_T0_config">
+<tt class="descname">burst_T0_config</tt><em class="property"> = &lt;EnumValue: DisplayMode.burst_T0_config [value=14]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.burst_T0_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.burst_count">
+<tt class="descname">burst_count</tt><em class="property"> = &lt;EnumValue: DisplayMode.burst_count [value=9]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.burst_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.burst_delay">
+<tt class="descname">burst_delay</tt><em class="property"> = &lt;EnumValue: DisplayMode.burst_delay [value=8]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.burst_delay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.burst_mode">
+<tt class="descname">burst_mode</tt><em class="property"> = &lt;EnumValue: DisplayMode.burst_mode [value=7]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.burst_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.burst_period">
+<tt class="descname">burst_period</tt><em class="property"> = &lt;EnumValue: DisplayMode.burst_period [value=10]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.burst_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.channel_delay">
+<tt class="descname">channel_delay</tt><em class="property"> = &lt;EnumValue: DisplayMode.channel_delay [value=11]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.channel_delay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.channel_levels">
+<tt class="descname">channel_levels</tt><em class="property"> = &lt;EnumValue: DisplayMode.channel_levels [value=12]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.channel_levels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.channel_polarity">
+<tt class="descname">channel_polarity</tt><em class="property"> = &lt;EnumValue: DisplayMode.channel_polarity [value=13]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.channel_polarity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.prescale_config">
+<tt class="descname">prescale_config</tt><em class="property"> = &lt;EnumValue: DisplayMode.prescale_config [value=6]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.prescale_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.trigger_holdoff">
+<tt class="descname">trigger_holdoff</tt><em class="property"> = &lt;EnumValue: DisplayMode.trigger_holdoff [value=5]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.trigger_holdoff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.trigger_line">
+<tt class="descname">trigger_line</tt><em class="property"> = &lt;EnumValue: DisplayMode.trigger_line [value=3]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.trigger_line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.trigger_rate">
+<tt class="descname">trigger_rate</tt><em class="property"> = &lt;EnumValue: DisplayMode.trigger_rate [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.trigger_rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.trigger_single_shot">
+<tt class="descname">trigger_single_shot</tt><em class="property"> = &lt;EnumValue: DisplayMode.trigger_single_shot [value=2]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.trigger_single_shot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.DisplayMode.trigger_threshold">
+<tt class="descname">trigger_threshold</tt><em class="property"> = &lt;EnumValue: DisplayMode.trigger_threshold [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.DisplayMode.trigger_threshold" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.srs.SRSDG645.TriggerSource">
+<em class="property">class </em><tt class="descclassname">SRSDG645.</tt><tt class="descname">TriggerSource</tt><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.srs.SRSDG645.TriggerSource.external_falling">
+<tt class="descname">external_falling</tt><em class="property"> = &lt;EnumValue: TriggerSource.external_falling [value=2]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource.external_falling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.TriggerSource.external_rising">
+<tt class="descname">external_rising</tt><em class="property"> = &lt;EnumValue: TriggerSource.external_rising [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource.external_rising" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.TriggerSource.internal">
+<tt class="descname">internal</tt><em class="property"> = &lt;EnumValue: TriggerSource.internal [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource.internal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.TriggerSource.line">
+<tt class="descname">line</tt><em class="property"> = &lt;EnumValue: TriggerSource.line [value=6]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource.line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.TriggerSource.single_shot">
+<tt class="descname">single_shot</tt><em class="property"> = &lt;EnumValue: TriggerSource.single_shot [value=5]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource.single_shot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.TriggerSource.ss_external_falling">
+<tt class="descname">ss_external_falling</tt><em class="property"> = &lt;EnumValue: TriggerSource.ss_external_falling [value=4]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource.ss_external_falling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.srs.SRSDG645.TriggerSource.ss_external_rising">
+<tt class="descname">ss_external_rising</tt><em class="property"> = &lt;EnumValue: TriggerSource.ss_external_rising [value=3]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645.TriggerSource.ss_external_rising" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.channel">
-<tt class="descname">channel</tt><a class="headerlink" href="#instruments.srs.SRSDG645.channel" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SRSDG645.</tt><tt class="descname">channel</tt><a class="headerlink" href="#instruments.srs.SRSDG645.channel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.display">
-<tt class="descname">display</tt><a class="headerlink" href="#instruments.srs.SRSDG645.display" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SRSDG645.</tt><tt class="descname">display</tt><a class="headerlink" href="#instruments.srs.SRSDG645.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the front-panel display mode for the connected DDG.
 The mode is a tuple of the display mode and the channel.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">tuple</span></tt></a> of an <a class="reference internal" href="#instruments.srs.SRSDG645DisplayMode" title="instruments.srs.SRSDG645DisplayMode"><tt class="xref py py-obj docutils literal"><span class="pre">SRSDG645DisplayMode</span></tt></a> and an <a class="reference internal" href="#instruments.srs.SRSDG645Channels" title="instruments.srs.SRSDG645Channels"><tt class="xref py py-obj docutils literal"><span class="pre">SRSDG645Channels</span></tt></a></td>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">tuple</span></tt></a> of an <a class="reference internal" href="#instruments.srs.SRSDG645.DisplayMode" title="instruments.srs.SRSDG645.DisplayMode"><tt class="xref py py-obj docutils literal"><span class="pre">SRSDG645.DisplayMode</span></tt></a> and an <a class="reference internal" href="#instruments.srs.SRSDG645.Channels" title="instruments.srs.SRSDG645.Channels"><tt class="xref py py-obj docutils literal"><span class="pre">SRSDG645.Channels</span></tt></a></td>
 </tr>
 </tbody>
 </table>
@@ -225,7 +850,7 @@ The mode is a tuple of the display mode and the channel.</p>
 
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.enable_adv_triggering">
-<tt class="descname">enable_adv_triggering</tt><a class="headerlink" href="#instruments.srs.SRSDG645.enable_adv_triggering" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SRSDG645.</tt><tt class="descname">enable_adv_triggering</tt><a class="headerlink" href="#instruments.srs.SRSDG645.enable_adv_triggering" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets whether advanced triggering is enabled.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -239,7 +864,7 @@ The mode is a tuple of the display mode and the channel.</p>
 
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.holdoff">
-<tt class="descname">holdoff</tt><a class="headerlink" href="#instruments.srs.SRSDG645.holdoff" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SRSDG645.</tt><tt class="descname">holdoff</tt><a class="headerlink" href="#instruments.srs.SRSDG645.holdoff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the trigger holdoff time.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -255,7 +880,7 @@ The mode is a tuple of the display mode and the channel.</p>
 
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.trigger_rate">
-<tt class="descname">trigger_rate</tt><a class="headerlink" href="#instruments.srs.SRSDG645.trigger_rate" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SRSDG645.</tt><tt class="descname">trigger_rate</tt><a class="headerlink" href="#instruments.srs.SRSDG645.trigger_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the rate of the internal trigger.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -271,13 +896,13 @@ The mode is a tuple of the display mode and the channel.</p>
 
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.trigger_source">
-<tt class="descname">trigger_source</tt><a class="headerlink" href="#instruments.srs.SRSDG645.trigger_source" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SRSDG645.</tt><tt class="descname">trigger_source</tt><a class="headerlink" href="#instruments.srs.SRSDG645.trigger_source" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the source for the trigger.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body">SRSDG645TriggerSource</td>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body">SRSDG645.TriggerSource</td>
 </tr>
 </tbody>
 </table>
@@ -285,184 +910,6 @@ The mode is a tuple of the display mode and the channel.</p>
 
 </dd></dl>
 
-<div class="section" id="id1">
-<h3>Constants and Enumerations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
-<dt id="instruments.srs.SRSDG645Channels">
-<em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRSDG645Channels</tt><a class="headerlink" href="#instruments.srs.SRSDG645Channels" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.A">
-<tt class="descname">A</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.A [value=2]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.A" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.B">
-<tt class="descname">B</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.B [value=3]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.B" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.C">
-<tt class="descname">C</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.C [value=4]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.C" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.D">
-<tt class="descname">D</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.D [value=5]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.D" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.E">
-<tt class="descname">E</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.E [value=6]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.E" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.F">
-<tt class="descname">F</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.F [value=7]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.F" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.G">
-<tt class="descname">G</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.G [value=8]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.G" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.H">
-<tt class="descname">H</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.H [value=9]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.H" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.T0">
-<tt class="descname">T0</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.T0 [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.T0" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645Channels.T1">
-<tt class="descname">T1</tt><em class="property"> = &lt;EnumValue: SRSDG645Channels.T1 [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645Channels.T1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="instruments.srs.SRSDG645DisplayMode">
-<em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRSDG645DisplayMode</tt><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.adv_triggering_enable">
-<tt class="descname">adv_triggering_enable</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.adv_triggering_enable [value=4]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.adv_triggering_enable" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.burst_T0_config">
-<tt class="descname">burst_T0_config</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.burst_T0_config [value=14]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.burst_T0_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.burst_count">
-<tt class="descname">burst_count</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.burst_count [value=9]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.burst_count" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.burst_delay">
-<tt class="descname">burst_delay</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.burst_delay [value=8]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.burst_delay" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.burst_mode">
-<tt class="descname">burst_mode</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.burst_mode [value=7]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.burst_mode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.burst_period">
-<tt class="descname">burst_period</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.burst_period [value=10]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.burst_period" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.channel_delay">
-<tt class="descname">channel_delay</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.channel_delay [value=11]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.channel_delay" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.channel_levels">
-<tt class="descname">channel_levels</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.channel_levels [value=12]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.channel_levels" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.channel_polarity">
-<tt class="descname">channel_polarity</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.channel_polarity [value=13]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.channel_polarity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.prescale_config">
-<tt class="descname">prescale_config</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.prescale_config [value=6]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.prescale_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.trigger_holdoff">
-<tt class="descname">trigger_holdoff</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.trigger_holdoff [value=5]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.trigger_holdoff" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.trigger_line">
-<tt class="descname">trigger_line</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.trigger_line [value=3]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.trigger_line" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.trigger_rate">
-<tt class="descname">trigger_rate</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.trigger_rate [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.trigger_rate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.trigger_single_shot">
-<tt class="descname">trigger_single_shot</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.trigger_single_shot [value=2]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.trigger_single_shot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645DisplayMode.trigger_threshold">
-<tt class="descname">trigger_threshold</tt><em class="property"> = &lt;EnumValue: SRSDG645DisplayMode.trigger_threshold [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645DisplayMode.trigger_threshold" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="instruments.srs.SRSDG645TriggerSource">
-<em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRSDG645TriggerSource</tt><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="instruments.srs.SRSDG645TriggerSource.external_falling">
-<tt class="descname">external_falling</tt><em class="property"> = &lt;EnumValue: SRSDG645TriggerSource.external_falling [value=2]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource.external_falling" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645TriggerSource.external_rising">
-<tt class="descname">external_rising</tt><em class="property"> = &lt;EnumValue: SRSDG645TriggerSource.external_rising [value=1]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource.external_rising" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645TriggerSource.internal">
-<tt class="descname">internal</tt><em class="property"> = &lt;EnumValue: SRSDG645TriggerSource.internal [value=0]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource.internal" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645TriggerSource.line">
-<tt class="descname">line</tt><em class="property"> = &lt;EnumValue: SRSDG645TriggerSource.line [value=6]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource.line" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645TriggerSource.single_shot">
-<tt class="descname">single_shot</tt><em class="property"> = &lt;EnumValue: SRSDG645TriggerSource.single_shot [value=5]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource.single_shot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645TriggerSource.ss_external_falling">
-<tt class="descname">ss_external_falling</tt><em class="property"> = &lt;EnumValue: SRSDG645TriggerSource.ss_external_falling [value=4]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource.ss_external_falling" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.srs.SRSDG645TriggerSource.ss_external_rising">
-<tt class="descname">ss_external_rising</tt><em class="property"> = &lt;EnumValue: SRSDG645TriggerSource.ss_external_rising [value=3]&gt;</em><a class="headerlink" href="#instruments.srs.SRSDG645TriggerSource.ss_external_rising" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div>
 </div>
 </div>
 
@@ -480,10 +927,7 @@ The mode is a tuple of the display mode and the channel.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#srs830"><tt class="docutils literal"><span class="pre">SRS830</span></tt></a></li>
-<li><a class="reference internal" href="#srsdg645"><tt class="docutils literal"><span class="pre">SRSDG645</span></tt></a><ul>
-<li><a class="reference internal" href="#id1">Constants and Enumerations</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#srsdg645"><tt class="docutils literal"><span class="pre">SRSDG645</span></tt></a></li>
 </ul>
 </li>
 </ul>
